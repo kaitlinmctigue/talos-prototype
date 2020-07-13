@@ -1,0 +1,470 @@
+@import "breakpoints";
+@import "color-palette";
+@import "variables";
+@import "text";
+@import "icons";
+@import "helpers-and-mixins";
+
+.file-name {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+//Showing and Hiding Navs
+.nav--desktop {
+  @media (max-width: @breakpoint_sm-max) {
+    display: none;
+  }
+
+  //margin-bottom: -20px;
+  position: fixed;
+  display: inline-block;
+  width: 100%;
+  z-index: @zindex-level3;
+
+  .navbar-nav {
+    margin-top: 2px;
+  }
+}
+
+.nav--mobile {
+  @media (min-width: @breakpoint_md-min) {
+    display: none;
+  }
+
+  margin-bottom: -20px;
+}
+
+//List View Toggle
+.nav_toggle-view-bar {
+  z-index: @zindex-level3;
+  position: absolute;
+  top: 0;
+  left: calc(50% - 120px);
+
+  @media (max-width: @breakpoint_sm-max) {
+    top: 118px;
+  }
+
+  .btn-group {
+    padding: 10px!important;
+  }
+
+  .btn {
+    padding: 4px;
+
+    img {
+      height: 25px;
+      opacity: .6;
+    }
+
+    &.active {
+      img {
+        opacity: 1;
+      }
+    }
+  }
+
+  label.btn.active {
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.27);
+  }
+}
+
+
+//Desktop Nav
+//-- Navbar Variable Definitions
+
+// default overrides
+@navbar-height: 50px;         // override default min-height
+@navbar-margin-bottom: 20px;  // override default margin-bottom
+@navbar-border-radius: 0px;   // override default border-radius
+
+// Do not change unless grid float breakpoint max has been
+// changed in bootstrap code.
+@grid-float-breakpoint-max: 767px;
+
+// specify class name
+// ex. default = .navbar-default
+// ex. inverse = .navbar-inverse
+// ex. custom  = .navbar-custom
+@class-name: custom;
+@stroke-width: 0;
+
+@navbar-custom-color: @color-mid-gray!important;
+@navbar-custom-bg: @color-white!important;
+@navbar-custom-border: @color-green!important;
+
+// Links
+@navbar-custom-link-color: @navbar-custom-color;
+@navbar-custom-link-hover-color: @color-dark-gray!important;
+@navbar-custom-link-hover-bg: @color-white!important;
+@navbar-custom-link-active-color: @navbar-custom-link-hover-color;
+@navbar-custom-link-active-bg: transparent!important;
+@navbar-custom-link-disabled-color: @color-light-gray;
+@navbar-custom-link-disabled-bg: transparent;
+
+// Brand
+@navbar-custom-brand-color: @navbar-custom-link-color;
+@navbar-custom-brand-hover-color: @color-dark-gray;
+@navbar-custom-brand-hover-bg: transparent;
+// boolean to determine if padding and image sizing should be applied to brand.
+@navbar-custom-brand-image: false;
+// Only applies if @navbar-custom-brand-image = true
+@navbar-custom-brand-padding: 10px;
+// Only applies if @navbar-custom-brand-image = true
+@navbar-custom-brand-img-max-height: 30px;
+
+// Toggle
+@navbar-custom-toggle-hover-bg: darken(@navbar-custom-bg, 10%);
+@navbar-custom-toggle-icon-bar-bg: @color-green;
+@navbar-custom-toggle-border-color: darken(@navbar-custom-bg, 10%);
+
+
+
+// End Navbar Variable Definitions
+
+.navbar-default {
+  background: #fff!important;
+}
+
+.navbar {
+  z-index: 1000;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background: #fff!important;
+  // border-bottom: @stroke-width solid @navbar-custom-border;
+  box-shadow: 0px 1px 3px 0px #0000001a;
+  border-radius: @corner-flat!important;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  border-bottom: @border-thin_light!important;
+  margin-bottom: 0;
+
+  @media (min-width: @grid-float-breakpoint-max + 1 ) {
+    border-radius: @navbar-border-radius!important;
+    font-family: @font-default;
+  }
+
+  @media (max-width: @breakpoint_desktop-nav-min) {
+    height: 60px;
+  }
+
+  h1 {
+    margin: 0!important;
+  }
+
+  .row {
+    .nav-items {
+      padding-top :12px;
+    }
+  }
+
+  .navbar-toggler {
+    padding: 6px .75rem;
+    border: none;
+
+    .navbar-toggler-icon {
+      background-image: none;
+      border: none;
+
+      &:before {
+        content: '\f0c9';
+        font-family: @font-icon;
+        font-size: 25px;
+        color: @color-green;
+      }
+    }
+  }
+
+  .container {
+    margin-right: 0;
+    margin-left: 10px;
+    width: 100%;
+    background: @color-white;
+  }
+
+  .navbar-brand {
+    background: @logo;
+    width: 200px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+    margin-right: 20px;
+    margin-top: -2px;
+    height:40px;
+    max-width: 175px;
+
+    @media (max-width: @breakpoint_desktop-nav-min) {
+      width: 100%;
+      height: auto;
+      max-width: none;
+    }
+  }
+
+  .navbar-text {
+    color: @navbar-custom-color!important;
+    font-family: @font-default!important;
+  }
+
+  .navbar-nav {
+
+    display: inline-block!important;
+
+    & > li > a {
+      font-size: 15px;
+      color: @navbar-custom-link-color;
+      background: transparent!important;
+      background-image: none!important;
+      box-shadow: none!important;
+      &:hover,
+      &:focus {
+        color: @navbar-custom-link-hover-color;
+        background-color: @navbar-custom-link-hover-bg;
+      }
+      padding-top: 22px!important;
+      padding-bottom: 22px!important;
+    }
+
+    & > .active > a {
+      &,
+      &:hover,
+      &:focus {
+        color: @navbar-custom-link-active-color;
+        font-weight: bold;
+        // background-color: @color-lighter-gray;
+        background: transparent!important;
+        //padding-bottom: 15px!important;
+
+        @media (min-width: @grid-float-breakpoint-max) {
+          border-bottom: 4px solid @color-green!important;
+          margin-bottom: -1px!important;
+        }
+      }
+    }
+
+    & > .disabled > a {
+      &,
+      &:hover,
+      &:focus {
+        color: @navbar-custom-link-disabled-color;
+        //background-color: @navbar-custom-link-disabled-bg;
+      }
+    }
+  } // .navbar-nav
+
+  .navbar-toggle {
+    border-color: @navbar-custom-toggle-border-color;
+    &:hover,
+    &:focus {
+      background-color: @navbar-custom-toggle-hover-bg;
+    }
+
+    .icon-bar {
+      background-color: @navbar-custom-toggle-icon-bar-bg;
+    }
+  } //.navbar-toggle
+
+  .navbar-collapse,
+  .navbar-form {
+    border-color: darken(@navbar-custom-bg, 7%);
+  }
+
+  .navbar-nav {
+    & > .open > a {
+      &,
+      &:hover,
+      &:focus {
+        background-color: @navbar-custom-link-active-bg;
+        color: @navbar-custom-link-active-color;
+      }
+    }
+
+    @media (max-width: @grid-float-breakpoint-max) {
+      .open .dropdown-menu {
+        & > .dropdown-header {
+          border-color: @navbar-custom-border;
+        }
+        .divider {
+          background-color: @navbar-custom-border;
+        }
+        & > li > a {
+          color: @navbar-custom-link-color;
+          padding-top: 10px!important;
+          padding-bottom: 10px!important;
+          &:hover,
+          &:focus {
+            color: @navbar-custom-link-hover-color;
+            background-color: @navbar-custom-link-hover-bg;
+          }
+        }
+        & > .active > a {
+          &, &:hover, &:focus {
+            color: @navbar-custom-link-active-color;
+            background-color: @navbar-custom-link-active-bg;
+            border-bottom: none;
+          }
+        }
+        & > .disabled > a {
+          &, &:hover, &:focus {
+            color: @navbar-custom-link-disabled-color;
+            background-color: @navbar-custom-link-disabled-bg;
+          }
+        }
+      }
+    }
+  } // .navbar-nav
+
+  .navbar-link {
+    color: @navbar-custom-link-color;
+    &:hover {
+      color: @navbar-custom-link-hover-color;
+    }
+  } // .navbar-link
+
+  .btn-link {
+    color: @navbar-custom-link-color;
+    &:hover,
+    &:focus {
+      color: @navbar-custom-link-hover-color;
+    }
+
+    &[disabled],
+    fieldset[disabled] & {
+      &:hover,
+      &:focus {
+        color: @navbar-custom-link-disabled-color;
+      }
+    }
+  } // .btn-link
+
+
+  ul.dropdown-menu {
+    margin-top: 3px;
+  }
+} // .navbar-#{@class-name}
+
+// ---------------------
+.navbar-nav>li.active>.dropdown-menu {
+  margin-top: 2px;
+}
+
+.dropdown-toggle {
+  .caret {
+    display: none;
+  }
+}
+
+.navbar-nav>li>.dropdown-menu {
+  margin-top: 4px;
+}
+
+
+//Mobile Nav
+//Sidebar
+.navbar.nav_sidebar_header {
+  box-shadow: none!important;
+  margin-bottom: 0!important;
+  border-bottom: none!important;
+  display:none;
+}
+
+.button-settings {
+  &:extend(.override-background);
+
+  a.dropdown-toggle {
+    padding: 0;
+    &:extend(.override-background);
+
+    &:before {
+      content: @icon_content--user !important;
+      font-family: @font-icon;
+      color: @color-light-gray;
+      font-size: 25px;
+      cursor: pointer;
+    }
+
+    &:after {
+      display: none;
+      //border: none!important;
+    }
+  }
+
+  .dropdown-menu {
+    left: -132px;
+  }
+}
+
+.nav_sidebar_body {
+  .panel-heading {
+    padding: 0;
+    &:extend(.override-background);
+    margin-top: 0!important;
+    border-radius: @corner-flat;
+    cursor: pointer;
+
+    h4 {
+      padding: 15px 15px 15px 25px;
+
+      a {
+        //width: calc(~"100% - 10px");
+        width: 100%;
+        display: inline-block;
+
+        &:before {
+          content: '\f107';
+          font-family: @font-icon;
+          float: right;
+          color: @color-green;
+          font-size: 22px;
+          margin-top: -4px;
+        }
+      }
+    }
+  }
+
+  .panel {
+    margin-top: 0!important;
+    border-radius: @corner-flat!important;
+    &:extend(.override-background);
+    box-shadow: none;
+    border-bottom: @border-thin_light;
+
+    &:last-of-type {
+      //border-bottom: @border-thin_light;
+    }
+  }
+
+.panel.active {
+    .panel-heading{
+    border-left: 8px solid @color-green;
+    h4 {
+    padding-left: 17px !important;
+    }
+  }
+}
+
+  .panel-body {
+    padding: 0;
+    ul.nav_sidebar_child-nav {
+      list-style: none;
+      width: 100%;
+      display: inline-block;
+      padding: 0;
+      margin-bottom: 0;
+
+      li {
+        padding: 8px 25px;
+        background: @color-dark-gray;
+        color: @color-white;
+        border-bottom: @border-thin_mid;
+
+        //border-top: @border-thin_dark;
+
+        //&:last-of-type {
+        //  border-bottom: @border-thin_dark;
+        //}
+      }
+    }
+  }
+}

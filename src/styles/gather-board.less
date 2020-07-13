@@ -1,0 +1,27 @@
+.board {
+  background-color: @color-board-bg;
+  background-image: url('../images/boardbg.png');
+  background-position: 0 63px;
+  background-size: 50%;
+  height: 100vh;
+  padding: 100px 20px 20px 20px;
+
+  &__fab {
+    position: absolute;
+    bottom: 30px;
+    left: calc(50% - 100px);
+    border-radius: @corner-rounded;
+    border: none;
+
+  }
+
+  .board__woz {
+    overflow-y: auto;
+
+    &--board {
+      display: block;
+      margin: -18px 118px;
+      width: 1260px;
+    }
+  }
+}

@@ -1,0 +1,104 @@
+@import "color-palette";
+@import "variables";
+
+.close-modal-icon {
+  height: 37px;
+  text-align: right;
+  margin: 5px 12px -37px;
+  font-size: 18px;
+  cursor: pointer;
+  z-index: 1000;
+
+  &:before {
+    content: @icon_content--close;
+    font-family: @font-icon;
+    color: @color-mid-gray;
+  }
+}
+
+.modal_case-detail {
+
+  .card_badge--iso {
+    margin-left: 4px;
+  }
+
+  .modal-footer {
+    padding: 10px 15px!important;
+  }
+  .modal-body {
+    padding-bottom: 0px !important;
+  }
+
+  .container-bottom-section {
+    background: @color-gray-middleground;
+    margin-top: 16px;
+    padding-top: 8px;
+    border-top: 1px solid @color-lightest-gray;
+  }
+  .container-notes-block {
+    background: @color-white;
+    border-radius: 4px;
+    box-shadow: @shadow-mid;
+    padding: 16px;
+    margin-bottom:16px;
+  }
+  .card_name-modal {
+    font-size: 22px;
+  }
+  .card_diagnosis-modal {
+    font-size: 16px;
+    font-weight: 600;
+    padding-right: 8px;
+    display: inline-block;
+  }
+  .card_critical-modal {
+    font-size: 16px;
+    //font-weight: 400px;
+    display: inline-block;
+  }
+  .card_text-modal {
+    font-size: 16px;
+  }
+  .card_row {
+    margin-bottom: 16px;
+  }
+  .notes_author-name {
+    font-size:12px;
+    font-weight: 600;
+    color: @color-blue;
+  }
+  .notes_time {
+    font-size:12px;
+    font-weight: 400;
+    color: @color-blue;
+    padding-right: 8px;
+    display: inline-block;
+    padding-bottom: 16px;
+  }
+  .notes_message {
+    font-size: 12px;
+    font-weight: 400;
+  }
+  .card_case-status-pill {
+    border-radius: @corner-pill;
+    text-align: center;
+    line-height: 1;
+    vertical-align: baseline;
+    padding: 4px 8px 4px 8px;
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    color: @color-white;
+    margin-right: 8px;
+    z-index: 0;
+    background-color: @color-green_digital;
+  }
+}
+
+@media (min-width: 574px) {
+  .modal-dialog {
+    width: 720px;
+    max-width: none!important;
+    margin: 30px auto;
+  }
+}

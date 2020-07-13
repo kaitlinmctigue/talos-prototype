@@ -1,0 +1,39 @@
+@import "color-palette";
+
+//shadows
+@shadow-light: inset 0 1px 0 rgba(255, 255, 255, .15), 0 1px 5px rgba(0, 0, 0, .075);
+@shadow-mid: inset 0 1px 0 rgba(255, 255, 255, .15), 0 1px 5px rgba(0, 0, 0, .65);
+@shadow-dark: inset 0 1px 0 rgba(255, 255, 255, .15), 0 1px 5px rgba(0, 0, 0, 0.5);
+@navbar-shadow: @shadow-mid!important;
+
+//borders
+@border-thin_dark: 1px solid @color-mid-gray;
+@border-thin_mid: 1px solid @color-light-gray;
+@border-thin_light: 1px solid @color-lightest-gray;
+
+.border-thin_dark {
+  border-top: @border-thin_dark;
+}
+
+.border-thin_mid {
+  border-top: @border-thin_mid;
+}
+
+.border-thin_light {
+  border-top: @border-thin_light;
+}
+
+//border radius
+@corner-flat: 0px;
+@corner-rounded: 5px;
+@corner-round: 50%;
+@corner-pill:12px;
+
+//brand
+@logo: url("../images/logo.png");
+
+//z-index
+@zindex-level0: 0;
+@zindex-level1: 10;
+@zindex-level2: 100;
+@zindex-level3: 1000;

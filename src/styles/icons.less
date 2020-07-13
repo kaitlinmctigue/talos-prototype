@@ -1,0 +1,50 @@
+/*  Font Awesome styles
+    ------------------------------------------------------- */
+
+@import "text";
+
+@font-face {
+	font-family: 'FontAwesome';
+	font-style: normal;
+	font-weight: 400;
+	src: url('../fonts/font-awesome-4.7.0/fonts/fontawesome-webfont.ttf');
+}
+
+.glyph() {
+	&:before {
+		font-family: @font-icon;
+		font-weight: normal;
+		font-style: normal;
+		display: inline-block;
+	}
+}
+
+/*[class^="glyph"]:before,
+[class*=" glyph"]:before {
+	.glyph;
+}*/
+
+@icon_content--user: '\f2bd';
+@icon_content--expand: "\f08e";
+@icon_content--close: "\f00d";
+@icon_content--ellipsis: "\f141";
+
+
+//Icon Variables
+.glyph-collapse-all			{.glyph; &:before { content: "\f146"; }}
+.glyph-expand-all				{.glyph; &:before { content: "\f0fe"; }}
+.glyph-trauma 					{.glyph; &:before { content: "\f0e7"; }}
+.glyph-cards 						{.glyph; &:before { content: "\f009"; }}
+.glyph-close 						{.glyph; &:before { content: @icon_content--close; }}
+.glyph-edit 						{.glyph; &:before { content: "\f040"; }}
+.glyph-ellipsis 						{.glyph; &:before { content: @icon_content--ellipsis; }}
+.glyph-expand 						{.glyph; &:before { content: @icon_content--expand; }}
+.glyph-heart 						{.glyph; &:before { content: "\f004"; }}
+.glyph-list 						{.glyph; &:before { content: "\f00b"; }}
+.glyph-physician 				{.glyph; &:before { content: "\f0f1"; }}
+.glyph-facility 				{.glyph; &:before { content: "\f0f8"; }}
+.glyph-stroke 					{.glyph; &:before { content: "\f042"; }}
+.glyph-table 					{.glyph; &:before { content: "\f0ce"; }}
+.glyph-user							{.glyph; &:before { content: @icon_content--user; }}
+
+.glyph-clipboard {.glyph; &:before { content: "\f328"; }}
